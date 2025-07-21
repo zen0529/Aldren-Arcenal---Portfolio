@@ -1,0 +1,5 @@
+
+For fixing npm.ps1 cannot be loaded because running script is disabled in your system:
+run: 
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
