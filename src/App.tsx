@@ -5,7 +5,13 @@ function App() {
   return (
     <div className="w-full h-screen">
       <StarBackground />
-      <ProfilePage />
+      <div>
+        <ProfilePage />
+      </div>
+      <div>
+        
+      </div>
+      
     </div>
   )
 }
