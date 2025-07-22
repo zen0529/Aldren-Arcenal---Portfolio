@@ -25,7 +25,7 @@ export default function ProfilePage() {
       </div>
       <div className="h-[415px] w-[418px] p-5">
         <img
-          src="/src/assets/profile/circle_profile.png"
+          src="/public/profile/circle_profile.png"
           alt="Profile"
           className="h-full w-full object-cover rounded-full border-[10px] border-[#75C310]"
         />
