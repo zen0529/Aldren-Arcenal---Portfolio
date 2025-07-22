@@ -24,7 +24,7 @@ export default App;
 function ProfilePage() {
   return (
     <>
-      <div className="flex flex-row justify-between px-[170px] py-[152px] ">
+      <div className="flex flex-row justify-between px-[170px] py-[152px] backdrop-opacity-100">
         <div className="text-white flex flex-col items-start h-[415x] w-[418px] justify-between">
           <div className="flex flex-col items-start text-base/20">
             <h1 className="text-[96px] font-bold">Hi,</h1>
@@ -40,7 +40,7 @@ function ProfilePage() {
               type="button"
               className="bg-[#75C310] rounded-[30px] w-[220px] h-[56px] text-[20px] font-bold"
             >
-              Go to portfoliog
+              Go to portfolio
             </button>
           </Link>
         </div>
