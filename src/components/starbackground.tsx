@@ -36,7 +36,6 @@ export const StarBackground: React.FC = () => {
     }, [])
 
     
-
     const generateStars = () => {
         const numberOfStars = Math.floor(window.innerWidth * window.innerHeight / 10000)
 
