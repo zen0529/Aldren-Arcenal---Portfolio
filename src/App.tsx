@@ -40,13 +40,13 @@ function ProfilePage() {
               type="button"
               className="bg-[#75C310] rounded-[30px] w-[220px] h-[56px] text-[20px] font-bold"
             >
-              Go to portfolio
+              Go to portfoliog
             </button>
           </Link>
         </div>
         <div className="h-[415px] w-[418px] p-5">
           <img
-            src="/public/profile/circle_profile.png"
+            src="/profile/circle_profile.png"
             alt="Profile"
             className="h-full w-full object-cover rounded-full border-[10px] border-[#75C310]"
           />
