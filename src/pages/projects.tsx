@@ -4,9 +4,8 @@ import { ExternalLink, ChevronLeft, ChevronRight, X } from 'lucide-react';
 const projectsData = [
   {
     id: 1,
-    title: "Difficulty Classification",
-    description:
-      "An intelligent study platform that personalizes TOPCIT exam preparation using Retrieval-Augmented Generation and Computer-Adaptive Testing to optimize learning paths.",
+    title: "BloomScope — Bloom’s Taxonomy Difficulty Analyzer",
+    description: "BloomScope is an NLP-powered question difficulty classifier that predicts the cognitive level of a question using Bloom’s Taxonomy. The system evaluates text using TF-IDF semantics, readability scores, vocabulary richness, and linguistic structure to estimate five difficulty tiers: Very Easy → Very Hard.", 
     images: [
       "/assets/difficulty_class/diff1.png",
       "/assets/difficulty_class/diff2.png",
@@ -18,7 +17,7 @@ const projectsData = [
     id: 2,
     title: "MoodIQ",
     description:
-      "A seamless order management system that streamlines restaurant operations with real-time tracking, inventory management, and customer analytics.",
+      "MoodIQ turns your daily emotional check-ins into meaningful, personalized insights. Track your feelings, energy, and reflections — then let the system analyze your patterns, highlight trends, and reveal the emotional shifts you usually miss. Every entry contributes to a richer understanding of your emotional journey.",
     images: [
       "/assets/moodIQ/m1.png",
       "/assets/moodIQ/m2.png",
