@@ -1,7 +1,8 @@
 import { StarBackground } from "./components/starbackground";
 // import ProfilePage from "./pages/profilepage";
 import Projects from "./pages/projects";
-import { Link, Element }from "react-scroll";
+import { Link, Element } from "react-scroll";
+// import WalkDog from "./pages/practice_ts";
 
 function App() {
   return (
@@ -13,11 +14,14 @@ function App() {
       <Element name="section2" className="">
         <Projects />
       </Element>
+      <div>
+        {/* <WalkDog /> */}
+      </div>
     </div>
   );
 }
 //  overflow-y-scroll
-// 
+//
 // overflow-x-hidden
 export default App;
 
@@ -55,8 +59,6 @@ function ProfilePage() {
     </>
   );
 }
-
-
 
 // import { Link, Element } from 'react-scroll';
 
