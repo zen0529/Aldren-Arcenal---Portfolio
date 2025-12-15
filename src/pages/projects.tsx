@@ -246,56 +246,78 @@ export default function Projects() {
         >
           <button
             onClick={closeModal}
-            className="absolute top-4 right-4 text-white hover:text-[#75C310] transition-colors"
+            className="absolute top-4 right-4 text-white hover:text-[#75C310] transition-colors z-10"
           >
             <X size={32} />
           </button>
 
           <div 
-            className="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center"
+            className="relative max-w-6xl w-full max-h-[90vh] flex flex-col md:flex-row gap-6 bg-[#1a1a1a] rounded-xl p-6 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={modalProject.images[modalImageIndex]}
-              alt={`${modalProject.title} screenshot ${modalImageIndex + 1}`}
-              className="max-w-full max-h-[85vh] object-contain rounded-lg"
-            />
+            {/* Image Section */}
+            <div className="relative flex-1 flex items-center justify-center min-h-0">
+              <img
+                src={modalProject.images[modalImageIndex]}
+                alt={`${modalProject.title} screenshot ${modalImageIndex + 1}`}
+                className="max-w-full max-h-[60vh] md:max-h-[75vh] object-contain rounded-lg"
+              />
 
-            {modalProject.images.length > 1 && (
-              <>
-                <button
-                  onClick={prevModalImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
-                >
-                  <ChevronLeft size={32} />
-                </button>
-                <button
-                  onClick={nextModalImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
-                >
-                  <ChevronRight size={32} />
-                </button>
+              {modalProject.images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevModalImage}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+                  >
+                    <ChevronLeft size={28} />
+                  </button>
+                  <button
+                    onClick={nextModalImage}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+                  >
+                    <ChevronRight size={28} />
+                  </button>
 
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-black/50 px-4 py-2 rounded-full">
-                  {modalProject.images.map((_, idx) => (
-                    <div
-                      key={idx}
-                      className={`w-2 h-2 rounded-full cursor-pointer transition-colors ${
-                        idx === modalImageIndex ? 'bg-[#75C310]' : 'bg-white/50 hover:bg-white/70'
-                      }`}
-                      onClick={() => setModalImageIndex(idx)}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-black/50 px-4 py-2 rounded-full">
+                    {modalProject.images.map((_, idx) => (
+                      <div
+                        key={idx}
+                        className={`w-2 h-2 rounded-full cursor-pointer transition-colors ${
+                          idx === modalImageIndex ? 'bg-[#75C310]' : 'bg-white/50 hover:bg-white/70'
+                        }`}
+                        onClick={() => setModalImageIndex(idx)}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
 
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-center">
-            <h3 className="text-xl font-semibold mb-1">{modalProject.title}</h3>
-            <p className="text-sm text-white/70">
-              {modalImageIndex + 1} / {modalProject.images.length}
-            </p>
+            {/* Description Section */}
+            <div className="w-full md:w-80 flex flex-col gap-4 overflow-y-auto">
+              <div>
+                <h3 className="text-[#75C310] text-2xl font-bold mb-2">{modalProject.title}</h3>
+                <p className="text-sm text-white/50">
+                  Image {modalImageIndex + 1} of {modalProject.images.length}
+                </p>
+              </div>
+
+              <div className="border-t border-white/10 pt-4">
+                <p className="text-white/90 text-sm leading-relaxed">
+                  {modalProject.description}
+                </p>
+              </div>
+
+              <a
+                href={modalProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-[#75C310] hover:bg-[#65b310] text-black font-semibold py-3 px-4 rounded-lg transition-colors mt-auto"
+              >
+                View Project
+                <ExternalLink size={18} />
+              </a>
+            </div>
           </div>
         </div>
       )}

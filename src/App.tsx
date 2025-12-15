@@ -1,8 +1,6 @@
 import { StarBackground } from "./components/starbackground";
-// import ProfilePage from "./pages/profilepage";
 import Projects from "./pages/projects";
 import { Link, Element } from "react-scroll";
-// import WalkDog from "./pages/practice_ts";
 
 function App() {
   return (
@@ -15,14 +13,10 @@ function App() {
         <Projects />
       </Element>
       <div>
-        {/* <WalkDog /> */}
       </div>
     </div>
   );
 }
-//  overflow-y-scroll
-//
-// overflow-x-hidden
 export default App;
 
 function ProfilePage() {
@@ -59,34 +53,3 @@ function ProfilePage() {
     </>
   );
 }
-
-// import { Link, Element } from 'react-scroll';
-
-// function App() {
-//   return (
-//     <div>
-//       <nav className='bg-white'>
-
-//             <Link to="section1" smooth={true} duration={500}>Section 1</Link>
-
-//             <Link to="section2" smooth={true} duration={500}>Section 2</Link>
-
-//       </nav>
-//       <Element name="section1">
-//         <section style={{ height: '100vh', backgroundColor: 'lightblue' }}>
-//           <h1>Section 1</h1>
-//           <p>This is the content of section 1</p>
-//         </section>
-//       </Element>
-//       <Element name="section2">
-//         <section style={{ height: '100vh', backgroundColor: 'lightgreen' }}>
-//           <h1>Section 2</h1>
-//           <p>This is the content of section 2</p>
-//         </section>
-//       </Element>
-//       {/* Add more sections with Element components as needed */}
-//     </div>
-//   );
-// }
-
-// export default App;
