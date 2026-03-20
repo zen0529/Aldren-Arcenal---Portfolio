@@ -1,5 +1,6 @@
 import { StarBackground } from "./components/starbackground";
 import Projects from "./pages/projects";
+import Automations from "./pages/automations";
 import { Link, Element } from "react-scroll";
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
       </div>
       <Element name="section2" className="">
         <Projects />
+      </Element>
+      <Element name="section3" className="">
+        <Automations />
       </Element>
       <div>
       </div>
