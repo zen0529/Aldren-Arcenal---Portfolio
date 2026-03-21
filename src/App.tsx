@@ -1,6 +1,7 @@
 import { StarBackground } from "./components/starbackground";
 import Projects from "./pages/projects";
 import Automations from "./pages/automations";
+import Chatbot from "./components/Chatbot";
 import { Link, Element } from "react-scroll";
 
 function App() {
@@ -16,8 +17,7 @@ function App() {
       <Element name="section3" className="">
         <Automations />
       </Element>
-      <div>
-      </div>
+      <Chatbot />
     </div>
   );
 }
