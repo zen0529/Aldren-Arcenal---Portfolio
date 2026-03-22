@@ -329,7 +329,7 @@ const SpaceShooter: React.FC = () => {
   const spawnEnemies = (
     game: GameState,
     canvasWidth: number,
-    canvasHeight: number,
+    _canvasHeight: number,
     wave: number = 1
   ) => {
     const enemyCount = 3 + wave * 2;
