@@ -6,6 +6,8 @@ import Skills from "./pages/Skills";
 import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
 import Chatbot from "./components/Chatbot";
+import SpaceShooter from "./components/SpaceShooter";
+import MemoryGame from "./components/MemoryGame";
 import { Link, Element } from "react-scroll";
 import { ChevronDown } from "lucide-react";
 
@@ -33,6 +35,14 @@ function App() {
 
       <Element name="automations">
         <Automations />
+      </Element>
+
+      <Element name="game">
+        <SpaceShooter />
+      </Element>
+
+      <Element name="memory">
+        <MemoryGame />
       </Element>
 
       <Element name="contact">
