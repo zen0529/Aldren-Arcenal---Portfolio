@@ -139,7 +139,7 @@ export default function Projects() {
           {projectsData.map((project, index) => (
             <div
               key={project.id}
-              className="relative h-80 cursor-pointer"
+              className="relative h-64 md:h-80 cursor-pointer"
               style={{ perspective: '1000px' }}
               onClick={() => handleFlip(project.id)}
             >
@@ -151,17 +151,24 @@ export default function Projects() {
                 }}
               >
                 {/* Front Face */}
-                <div 
-                  className="absolute w-full h-full bg-gradient-to-br from-[#545454] to-[#3a3a3a] rounded-2xl p-6 flex items-center justify-center border-2 border-[#75C310]/20 hover:border-[#75C310]/60 transition-all duration-300 shadow-lg hover:shadow-[#75C310]/20"
+                <div
+                  className="absolute w-full h-full bg-gradient-to-br from-[#545454] to-[#3a3a3a] rounded-2xl p-6 flex items-center justify-center border-2 border-[#75C310]/20 hover:border-[#75C310]/60 transition-all duration-300 shadow-lg hover:shadow-[#75C310]/20 overflow-hidden"
                   style={{ backfaceVisibility: 'hidden' }}
                 >
-                  <div className="text-center">
+                  {/* Blurred background image */}
+                  <img
+                    src={project.images[0]}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover opacity-10 blur-sm scale-110"
+                  />
+                  <div className="text-center relative z-10">
                     <div className="text-[#75C310] text-5xl font-bold mb-4">
                       {index + 1}
                     </div>
                     <h3 className="text-white text-lg font-semibold leading-tight">
                       {project.title}
                     </h3>
+                    <p className="text-white/40 text-xs mt-3">Click to explore</p>
                   </div>
                 </div>
 
@@ -175,7 +182,7 @@ export default function Projects() {
                 >
                   <div className="flex flex-col h-full">
                     {/* Carousel with fixed height */}
-                    <div className="relative h-40 mb-3 group flex-shrink-0">
+                    <div className="relative h-32 md:h-40 mb-3 group flex-shrink-0">
                       <img
                         src={project.images[currentImageIndex[project.id] || 0]}
                         alt={`${project.title} screenshot`}

@@ -190,7 +190,7 @@ export default function Chatbot() {
     <>
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[360px] max-h-[500px] min-h-[500px] flex flex-col rounded-2xl border border-[#75C310]/40 bg-[#1a1a1a] shadow-2xl shadow-black/60 overflow-hidden">
+        <div className="fixed bottom-24 right-3 sm:right-6 z-50 w-[calc(100vw-1.5rem)] sm:w-[360px] max-h-[70vh] sm:max-h-[500px] min-h-[400px] sm:min-h-[500px] flex flex-col rounded-2xl border border-[#75C310]/40 bg-[#1a1a1a] shadow-2xl shadow-black/60 overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-[#75C310]/10 border-b border-[#75C310]/20">
             <div className="flex items-center gap-2">

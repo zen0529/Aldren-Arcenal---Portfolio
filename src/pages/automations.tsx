@@ -66,7 +66,7 @@ export default function Automations() {
             >
               {/* Workflow Image */}
               <div
-                className="relative h-52 cursor-pointer group"
+                className="relative h-40 md:h-52 cursor-pointer group"
                 onClick={() => openModal(auto, 0)}
               >
                 <img
