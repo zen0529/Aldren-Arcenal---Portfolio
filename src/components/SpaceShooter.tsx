@@ -24,6 +24,19 @@ interface Particle extends GameObject {
   opacity: number;
 }
 
+interface GameState {
+  player: GameObject & { health: number; velocityX: number };
+  bullets: Bullet[];
+  enemies: Enemy[];
+  particles: Particle[];
+  score: number;
+  gameOver: boolean;
+  wave: number;
+  waveTimer: number;
+  keys: Record<string, boolean>;
+  lastShot: number;
+}
+
 const SpaceShooter: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [gameState, setGameState] = useState({
@@ -100,7 +113,7 @@ const SpaceShooter: React.FC = () => {
   }, []);
 
   const update = (
-    game: any,
+    game: GameState,
     canvasWidth: number,
     canvasHeight: number
   ) => {
@@ -209,7 +222,7 @@ const SpaceShooter: React.FC = () => {
 
   const render = (
     ctx: CanvasRenderingContext2D,
-    game: any,
+    game: GameState,
     canvasWidth: number,
     canvasHeight: number
   ) => {
@@ -314,7 +327,7 @@ const SpaceShooter: React.FC = () => {
   };
 
   const spawnEnemies = (
-    game: any,
+    game: GameState,
     canvasWidth: number,
     canvasHeight: number,
     wave: number = 1
