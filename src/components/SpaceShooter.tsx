@@ -81,11 +81,13 @@ const SpaceShooter: React.FC = () => {
 
     // Event listeners
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       gameRef.current.keys[e.key.toLowerCase()] = true;
       if (e.key === " ") e.preventDefault();
     };
 
     const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       gameRef.current.keys[e.key.toLowerCase()] = false;
     };
 
@@ -369,6 +371,7 @@ const SpaceShooter: React.FC = () => {
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       if (e.key.toLowerCase() === "r" && gameState.gameOver) {
         handleRestart();
       }
