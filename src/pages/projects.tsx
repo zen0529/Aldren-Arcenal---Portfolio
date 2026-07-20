@@ -72,6 +72,18 @@ const projectsData = [
     ],
     link: "https://example.com/gainz-grind",
   },
+  {
+    id: 7,
+    title: "YadoManagement - Channel Manager",
+    description:
+      "YadoManagement is a robust channel manager designed to seamlessly synchronize hotel bookings, availability, and rates across multiple online travel agencies (OTAs) in real-time, streamlining property operations.",
+    images: [
+      "/assets/yadoManagement/y1.png",
+      "/assets/yadoManagement/y2.png",
+      "/assets/yadoManagement/y3.png",
+    ],
+    link: "#",
+  },
 ];
 
 export default function Projects() {
