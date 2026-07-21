@@ -83,7 +83,7 @@ const projectsData = [
       "/assets/yadoManagement/y2.png",
       "/assets/yadoManagement/y3.png",
     ],
-    link: "#",
+    link: "https://yado-booking.vercel.app/",
   },
 ];
 
