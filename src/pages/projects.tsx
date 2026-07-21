@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { ExternalLink, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const projectsData = [
   {
     id: 1,
     title: "BloomScope — Bloom’s Taxonomy Difficulty Analyzer",
-    description: "BloomScope is an NLP-powered question difficulty classifier that predicts the cognitive level of a question using Bloom’s Taxonomy. The system evaluates text using TF-IDF semantics, readability scores, vocabulary richness, and linguistic structure to estimate five difficulty tiers: Very Easy → Very Hard.", 
+    description:
+      "BloomScope is an NLP-powered question difficulty classifier that predicts the cognitive level of a question using Bloom’s Taxonomy. The system evaluates text using TF-IDF semantics, readability scores, vocabulary richness, and linguistic structure to estimate five difficulty tiers: Very Easy → Very Hard.",
     images: [
       "/assets/difficulty_class/diff1.png",
       "/assets/difficulty_class/diff2.png",
@@ -22,7 +23,7 @@ const projectsData = [
       "/assets/moodIQ/m1.png",
       "/assets/moodIQ/m2.png",
       "/assets/moodIQ/m3.png",
-      "/assets/moodIQ/m3.png"
+      "/assets/moodIQ/m3.png",
     ],
     link: "https://zen0529-moodiq-main-w9rl9h.streamlit.app/",
   },
@@ -33,9 +34,9 @@ const projectsData = [
       "A communication platform empowering voice-based interactions with AI-powered speech recognition and natural language processing for accessibility.",
     images: [
       "/assets/speakup/speakup0.png",
-     "/assets/speakup/speakup1.png",
-     "/assets/speakup/speakup2.png",
-     "/assets/speakup/speakup3.png",
+      "/assets/speakup/speakup1.png",
+      "/assets/speakup/speakup2.png",
+      "/assets/speakup/speakup3.png",
     ],
     link: "https://example.com/speakup",
   },
@@ -65,7 +66,7 @@ const projectsData = [
     id: 6,
     title: "Gainz Grind - Workout Recommender and Tracker",
     description:
-      "Personalized fitness companion that recommends workouts based on your goals, tracks progress, and adapts to your performance with ML-driven insights.",
+      "Personalized fitness companion that recommends workouts based on your goals, tracks progress, and adapts to your performance based on a rule-based approach.",
     images: [
       "https://via.placeholder.com/600x400/4A5568/FFFFFF?text=Gainz+Grind+Home",
       "https://via.placeholder.com/600x400/4A5568/FFFFFF?text=Workout+Tracker",
@@ -88,35 +89,51 @@ const projectsData = [
 
 export default function Projects() {
   const [flippedId, setFlippedId] = useState<number | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState<{[key: number]: number}>({});
+  const [currentImageIndex, setCurrentImageIndex] = useState<{
+    [key: number]: number;
+  }>({});
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalProject, setModalProject] = useState<typeof projectsData[0] | null>(null);
+  const [modalProject, setModalProject] = useState<
+    (typeof projectsData)[0] | null
+  >(null);
   const [modalImageIndex, setModalImageIndex] = useState(0);
 
   const handleFlip = (id: number) => {
     setFlippedId(flippedId === id ? null : id);
     if (!currentImageIndex[id]) {
-      setCurrentImageIndex(prev => ({ ...prev, [id]: 0 }));
+      setCurrentImageIndex((prev) => ({ ...prev, [id]: 0 }));
     }
   };
 
-  const nextImage = (projectId: number, totalImages: number, e: React.MouseEvent) => {
+  const nextImage = (
+    projectId: number,
+    totalImages: number,
+    e: React.MouseEvent,
+  ) => {
     e.stopPropagation();
-    setCurrentImageIndex(prev => ({
+    setCurrentImageIndex((prev) => ({
       ...prev,
-      [projectId]: ((prev[projectId] || 0) + 1) % totalImages
+      [projectId]: ((prev[projectId] || 0) + 1) % totalImages,
     }));
   };
 
-  const prevImage = (projectId: number, totalImages: number, e: React.MouseEvent) => {
+  const prevImage = (
+    projectId: number,
+    totalImages: number,
+    e: React.MouseEvent,
+  ) => {
     e.stopPropagation();
-    setCurrentImageIndex(prev => ({
+    setCurrentImageIndex((prev) => ({
       ...prev,
-      [projectId]: ((prev[projectId] || 0) - 1 + totalImages) % totalImages
+      [projectId]: ((prev[projectId] || 0) - 1 + totalImages) % totalImages,
     }));
   };
 
-  const openModal = (project: typeof projectsData[0], imageIndex: number, e: React.MouseEvent) => {
+  const openModal = (
+    project: (typeof projectsData)[0],
+    imageIndex: number,
+    e: React.MouseEvent,
+  ) => {
     e.stopPropagation();
     setModalProject(project);
     setModalImageIndex(imageIndex);
@@ -136,7 +153,10 @@ export default function Projects() {
 
   const prevModalImage = () => {
     if (modalProject) {
-      setModalImageIndex((prev) => (prev - 1 + modalProject.images.length) % modalProject.images.length);
+      setModalImageIndex(
+        (prev) =>
+          (prev - 1 + modalProject.images.length) % modalProject.images.length,
+      );
     }
   };
 
@@ -146,26 +166,29 @@ export default function Projects() {
         <h2 className="text-[#75C310] text-4xl md:text-5xl font-bold mb-12 self-start ml-4 md:ml-20">
           Projects
         </h2>
-        
+
         <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectsData.map((project, index) => (
             <div
               key={project.id}
               className="relative h-64 md:h-80 cursor-pointer"
-              style={{ perspective: '1000px' }}
+              style={{ perspective: "1000px" }}
               onClick={() => handleFlip(project.id)}
             >
               <div
                 className="relative w-full h-full transition-transform duration-700"
                 style={{
-                  transformStyle: 'preserve-3d',
-                  transform: flippedId === project.id ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                  transformStyle: "preserve-3d",
+                  transform:
+                    flippedId === project.id
+                      ? "rotateY(180deg)"
+                      : "rotateY(0deg)",
                 }}
               >
                 {/* Front Face */}
                 <div
                   className="absolute w-full h-full bg-gradient-to-br from-[#545454] to-[#3a3a3a] rounded-2xl p-6 flex items-center justify-center border-2 border-[#75C310]/20 hover:border-[#75C310]/60 transition-all duration-300 shadow-lg hover:shadow-[#75C310]/20 overflow-hidden"
-                  style={{ backfaceVisibility: 'hidden' }}
+                  style={{ backfaceVisibility: "hidden" }}
                 >
                   {/* Blurred background image */}
                   <img
@@ -180,16 +203,18 @@ export default function Projects() {
                     <h3 className="text-white text-lg font-semibold leading-tight">
                       {project.title}
                     </h3>
-                    <p className="text-white/40 text-xs mt-3">Click to explore</p>
+                    <p className="text-white/40 text-xs mt-3">
+                      Click to explore
+                    </p>
                   </div>
                 </div>
 
                 {/* Back Face */}
-                <div 
+                <div
                   className="absolute w-full h-full bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] rounded-2xl p-4 border-2 border-[#75C310]/60 shadow-xl overflow-hidden"
                   style={{
-                    backfaceVisibility: 'hidden',
-                    transform: 'rotateY(180deg)'
+                    backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
                   }}
                 >
                   <div className="flex flex-col h-full">
@@ -199,32 +224,42 @@ export default function Projects() {
                         src={project.images[currentImageIndex[project.id] || 0]}
                         alt={`${project.title} screenshot`}
                         className="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-                        onClick={(e) => openModal(project, currentImageIndex[project.id] || 0, e)}
+                        onClick={(e) =>
+                          openModal(
+                            project,
+                            currentImageIndex[project.id] || 0,
+                            e,
+                          )
+                        }
                       />
-                      
+
                       {project.images.length > 1 && (
                         <>
                           <button
-                            onClick={(e) => prevImage(project.id, project.images.length, e)}
+                            onClick={(e) =>
+                              prevImage(project.id, project.images.length, e)
+                            }
                             className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                           >
                             <ChevronLeft size={20} />
                           </button>
                           <button
-                            onClick={(e) => nextImage(project.id, project.images.length, e)}
+                            onClick={(e) =>
+                              nextImage(project.id, project.images.length, e)
+                            }
                             className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                           >
                             <ChevronRight size={20} />
                           </button>
-                          
+
                           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
                             {project.images.map((_, idx) => (
                               <div
                                 key={idx}
                                 className={`w-1.5 h-1.5 rounded-full ${
                                   idx === (currentImageIndex[project.id] || 0)
-                                    ? 'bg-[#75C310]'
-                                    : 'bg-white/50'
+                                    ? "bg-[#75C310]"
+                                    : "bg-white/50"
                                 }`}
                               />
                             ))}
@@ -259,7 +294,7 @@ export default function Projects() {
 
       {/* Modal */}
       {modalOpen && modalProject && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={closeModal}
         >
@@ -270,7 +305,7 @@ export default function Projects() {
             <X size={32} />
           </button>
 
-          <div 
+          <div
             className="relative max-w-6xl w-full max-h-[90vh] flex flex-col md:flex-row gap-6 bg-[#1a1a1a] rounded-xl p-6 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
@@ -302,7 +337,9 @@ export default function Projects() {
                       <div
                         key={idx}
                         className={`w-2 h-2 rounded-full cursor-pointer transition-colors ${
-                          idx === modalImageIndex ? 'bg-[#75C310]' : 'bg-white/50 hover:bg-white/70'
+                          idx === modalImageIndex
+                            ? "bg-[#75C310]"
+                            : "bg-white/50 hover:bg-white/70"
                         }`}
                         onClick={() => setModalImageIndex(idx)}
                       />
@@ -315,7 +352,9 @@ export default function Projects() {
             {/* Description Section */}
             <div className="w-full md:w-80 flex flex-col gap-4 overflow-y-auto">
               <div>
-                <h3 className="text-[#75C310] text-2xl font-bold mb-2">{modalProject.title}</h3>
+                <h3 className="text-[#75C310] text-2xl font-bold mb-2">
+                  {modalProject.title}
+                </h3>
                 <p className="text-sm text-white/50">
                   Image {modalImageIndex + 1} of {modalProject.images.length}
                 </p>
